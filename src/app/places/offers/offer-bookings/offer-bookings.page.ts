@@ -3,6 +3,7 @@ import { Place } from '../../place.model';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { PlacesService } from '../../places.service';
+import { TorreService } from 'src/app/torre.service';
 
 @Component({
   selector: 'app-offer-bookings',
@@ -11,11 +12,15 @@ import { PlacesService } from '../../places.service';
 })
 export class OfferBookingsPage implements OnInit {
   place: Place;
+  public connections: any;
+  public connection: any;
+  
 
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private torreService: TorreService
   ) { }
 
   ngOnInit() {
@@ -26,5 +31,18 @@ export class OfferBookingsPage implements OnInit {
       }
       this.place = this.placesService.getPlace(paramMap.get('placeId'));
     });
+
+    this.connections = this.torreService.connections;
+
+
+    this.route.paramMap.subscribe(paramMap => {
+      if (!paramMap.has('placeId')) {
+        this.navCtrl.navigateBack('/places/tabs/offers');
+        return;
+      }
+      this.connection = this.torreService.getConnection(paramMap.get('placeId'));
+    });
+
+
   }
 }

@@ -1,5 +1,7 @@
 {
   "name": "ionic-angular-airbnb",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

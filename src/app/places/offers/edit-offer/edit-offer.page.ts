@@ -10,6 +10,7 @@ import { Place } from '../../place.model';
   styleUrls: ['./edit-offer.page.scss'],
 })
 export class EditOfferPage implements OnInit {
+  
   place: Place;
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,8 @@ export class EditOfferPage implements OnInit {
       }
       this.place = this.placesService.getPlace(paramMap.get('placeId'));
     });
+
+
   }
 
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: PlacesPage,
     children: [
       {
-        path: 'discover',
+        path: 'bio',
         children: [
           {
             path: '',
@@ -22,7 +22,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'offers',
+        path: 'connections',
         children: [
           {
             path: '',
@@ -44,14 +44,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/places/tabs/discover',
+        redirectTo: '/places/tabs/bio',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/places/tabs/discover',
+    redirectTo: '/places/tabs/bio',
     pathMatch: 'full'
   }
 
